@@ -1,0 +1,42 @@
+body {
+    width: 50%;
+    margin: auto;
+    color: lightblue;
+}
+#displaying-month-year {
+    text-align: center;
+    width: 100%;
+    color: black;
+    font-size: 36px;
+    margin: 20px 0;
+}
+.flex-container {
+    display: flex;
+    width: 700px;
+    margin:auto;
+    flex-wrap: wrap;
+}
+.days {
+    width: 95px;
+    height: 25px;
+    border:solid 1px black;
+    background-color: gray;
+}
+.today {
+    background-color: orange;
+    color: black;
+}
+.nav {
+    margin-top: 20px;
+    display: inline-block;
+    width: 32.3%;
+}
+.width-hundred {
+    width: 100%;
+}
+.width-number-input {
+    width: 90%;
+}
+.days-text {
+    color: lightsteelblue;
+}
