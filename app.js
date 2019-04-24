@@ -63,7 +63,5 @@ function next(){
 function setDate(){
     Month = parseInt(document.getElementById('month').value);
     Year = parseInt(document.getElementById('year').value);
-    console.log(Month);
-    console.log(Year);
     displayCalendar(Month,Year);
 }
