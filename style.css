@@ -40,6 +40,9 @@ body {
 .bg-white {
     background-color: white;
 }
+.bg-gray {
+    background-color: gray;
+}
 .button-round:hover {
     background-color: #d1d1d1;
 }
@@ -60,6 +63,17 @@ body {
 }
 input {
     width: 20%;
+    border-radius: 5px;
+}
+.border-soft {
+    border-radius: 5px;
+}
+.button-trasparent {
+    background-color: transparent;
+    border-color: #d1d1d1;
+}
+.pad-five {
+    padding: 5px;
 }
 @media screen and (min-width: 400px){
     .container {
