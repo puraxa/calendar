@@ -19,13 +19,13 @@ function displayCalendar(month, year) {
     let daysInMonth = getDaysInMonth(month,year);
     let firstDay = new Date(year,month).getDay();
     let calendar = `
-        <div class="days days-text">Sunday</div>
-        <div class="days days-text">Monday</div>
-        <div class="days days-text">Tuesday</div>
-        <div class="days days-text">Wednesday</div>
-        <div class="days days-text">Thursday</div>
-        <div class="days days-text">Friday</div>
-        <div class="days days-text">Saturday</div>`;
+        <div class="days days-text gray">Su</div>
+        <div class="days days-text gray">Mo</div>
+        <div class="days days-text gray">Tu</div>
+        <div class="days days-text gray">We</div>
+        <div class="days days-text gray">Th</div>
+        <div class="days days-text gray">Fr</div>
+        <div class="days days-text gray">Sa</div>`;
     for(let i = 0; i < firstDay; i++){
         calendar += `<div class="days"></div>`;
     }
