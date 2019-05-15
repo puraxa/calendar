@@ -1,13 +1,13 @@
-let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-let today;
-let Month;
-let Year;
+let months: Array<string> = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let today:Date;
+let Month:number;
+let Year:number;
 function load(){
     today = new Date();
     Month = today.getMonth();
     Year = today.getFullYear();
     document.getElementById('displaying-month-year').innerText = `${months[Month]}, ${Year}`;
-    displayCalendar(Month,Year);
+    displayCalendar();
     for(let i = 0; i < 12; i++){
         document.getElementById('month').innerHTML += `
             <option value=${i}>${months[i]}</option>
@@ -15,10 +15,10 @@ function load(){
     }
 }
 
-function displayCalendar(month, year) {
-    let daysInMonth = getDaysInMonth(month,year);
-    let firstDay = new Date(year,month).getDay();
-    let calendar = `
+function displayCalendar():void {
+    let daysInMonth:number = getDaysInMonth();
+    let firstDay:number = new Date(Year,Month).getDay();
+    let calendar:string = `
         <div class="days days-text gray">Su</div>
         <div class="days days-text gray">Mo</div>
         <div class="days days-text gray">Tu</div>
@@ -37,31 +37,33 @@ function displayCalendar(month, year) {
             calendar += `<div class="days">${i+1}</div>`;
         }
     }
-    for(let i = 0; i < 6 - new Date(year,month,daysInMonth).getDay(); i++){
+    for(let i = 0; i < 6 - new Date(Year,Month,daysInMonth).getDay(); i++){
         calendar += `<div class="days"></div>`;
     }
     document.getElementById('calendar').innerHTML = calendar;
-    document.getElementById('displaying-month-year').innerText = `${months[month]}, ${year}`;
+    document.getElementById('displaying-month-year').innerText = `${months[Month]}, ${Year}`;
 }
 
-function getDaysInMonth(month,year){
-    return 32 - new Date(year, month, 32).getDate();
+function getDaysInMonth():number{
+    return new Date(Year, Month+1, 0).getDate();
 }
 
 function previous(){
     Month = Month-1 < 0 ? 11 : Month-1;
-    Year = Month-1 < 0 ? Year-1 : Year;
-    displayCalendar(Month,Year);
+    Year = Month == 11 ? Year-1 : Year;
+    displayCalendar();
 }
 
-function next(){
+function next():void{
     Month = Month+1 > 11 ? 0 : Month+1;
-    Year = Month+1 > 11  ? Year+1 : Year;
-    displayCalendar(Month,Year);
+    Year = Month == 0  ? Year+1 : Year;
+    displayCalendar();
 }
 
-function setDate(){
-    Month = parseInt(document.getElementById('month').value);
-    Year = parseInt(document.getElementById('year').value);
-    displayCalendar(Month,Year);
+function setDate():void{
+    let m:string = (<HTMLInputElement>document.getElementById('month')).value;
+    Month = parseInt(m);
+    let y:string = (<HTMLInputElement>document.getElementById('year')).value;
+    Year = parseInt(y);
+    displayCalendar();
 }
