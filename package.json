@@ -17,6 +17,7 @@
   "homepage": "https://github.com/puraxa/calendar#readme",
   "description": "",
   "devDependencies": {
+    "browser-sync": "^2.26.5",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
     "gulp-html-minifier2": "^1.1.11",
